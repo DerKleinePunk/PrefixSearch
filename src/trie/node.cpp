@@ -7,6 +7,11 @@ node::node(/* args */)
 
 node::~node()
 {
+    for(auto entry : children) {
+        delete entry.second;
+    }
+
+    children.clear();
 }
 
 const std::vector<std::string> node::GetWords(const std::string& word)
@@ -15,10 +20,10 @@ const std::vector<std::string> node::GetWords(const std::string& word)
     if(isEndOfWord) {
         result.push_back(word);
     }
-    for(auto entry : children) {
+    for(const auto entry : children) {
         auto nextPrefix = word + entry.first;
 		auto next = entry.second->GetWords(nextPrefix);
-        result.insert(std::end(result), std::begin(next), std::end(next));
+        result.insert(result.end(), next.begin(), next.end());
 	}
     return result;
 }

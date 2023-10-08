@@ -2,6 +2,7 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <unordered_map>
 
 
 class node
@@ -11,6 +12,7 @@ private:
 public:
     bool isEndOfWord;
     std::map<char,node*> children; 
+    //std::unordered_map<char,node*> children;
 
     node();
     ~node();
