@@ -4,7 +4,7 @@
 #include <vector>
 #include <chrono>
 
-#include "trie\trie.hpp"
+#include "trie/trie.hpp"
 
 int main(int, char**){
     std::cout << "Hello, from prefixSearch!\n";
