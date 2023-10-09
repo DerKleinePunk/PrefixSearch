@@ -1,6 +1,6 @@
 #include "trie.hpp"
 
-void trie::findWordsFromNode(node* node, std::string currentWord, std::vector<std::string>& result)
+void trie::findWordsFromNode(trieNode* node, std::string currentWord, std::vector<std::string>& result)
 {
     if(node->isEndOfWord) {
         result.push_back(currentWord);
@@ -12,20 +12,19 @@ void trie::findWordsFromNode(node* node, std::string currentWord, std::vector<st
 
 trie::trie(/* args */)
 {
-    root = new node();
+    root = new trieNode();
 }
 
 trie::~trie()
-{
-}
+= default;
 
-void trie::add(const std::string& word)
+void trie::add(const std::string& word) const
 {
     auto currentNode = root;
 
     for(const auto buchstabe : word) {
         if(currentNode->children.find(buchstabe) == currentNode->children.end()) {
-            currentNode->children.insert(std::pair<char, node*>(buchstabe, new node()));
+            currentNode->children.insert(std::pair(buchstabe, new trieNode()));
         }
         currentNode = currentNode->children[buchstabe];
     }
@@ -34,7 +33,7 @@ void trie::add(const std::string& word)
 
 std::vector<std::string> trie::Search(const std::string& word)
 {
-    auto currentNode = root;
+    const auto currentNode = root;
     for(const auto buchstabe : word) {
         if(currentNode->children.find(buchstabe) == currentNode->children.end()) {
             break;

@@ -5,19 +5,19 @@
 #include <unordered_map>
 
 
-class node
+class trieNode
 {
 private:
     /* data */
 public:
     bool isEndOfWord;
     //std::map<char,node*> children; 
-    std::unordered_map<char,node*> children;
+    std::unordered_map<char,trieNode*> children;
 
-    node();
-    ~node();
+    trieNode();
+    ~trieNode();
 
-    void node::GetWords(const std::string& word, std::vector<std::string>& result);
+    void trieNode::GetWords(const std::string& word, std::vector<std::string>& result);
 };
 
 

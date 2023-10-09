@@ -1,18 +1,18 @@
 #pragma once
 #include <string>
 
-#include "node.hpp"
+#include "trieNode.hpp"
 
 class trie
 {
 private:
-    node* root;
-    void findWordsFromNode(node *node, std::string currentWord, std::vector<std::string> &result);
+    trieNode* root{};
+    static void findWordsFromNode(trieNode *node, std::string currentWord, std::vector<std::string> &result);
 public:
     trie();
     ~trie();
 
-    void add(const std::string& word);
+    void add(const std::string& word) const;
     std::vector<std::string> Search(const std::string& word);
 };
 

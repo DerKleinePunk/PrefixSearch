@@ -1,11 +1,11 @@
-#include "node.hpp"
+#include "trieNode.hpp"
 
-node::node(/* args */)
+trieNode::trieNode(/* args */)
 {
     isEndOfWord = false;
 }
 
-node::~node()
+trieNode::~trieNode()
 {
     for(auto entry : children) {
         delete entry.second;
@@ -14,7 +14,7 @@ node::~node()
     children.clear();
 }
 
-void node::GetWords(const std::string& word, std::vector<std::string>& result)
+void trieNode::GetWords(const std::string& word, std::vector<std::string>& result)
 {
     if(isEndOfWord) {
         result.push_back(word);

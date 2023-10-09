@@ -41,6 +41,7 @@ src/maps/europe
 src/maps/hgt
 build.log
 */**/[Gg]enerated*.*
+out/
 
 # Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
 !packages/*/build/
