@@ -4,7 +4,7 @@
 #include <vector>
 #include <chrono>
 
-#include "trie/trieNode.hpp"
+//#include "trie/trieNode.hpp"
 
 /*int main(int, char**){
     std::cout << "Hello, from prefixSearch!\n";
@@ -45,6 +45,17 @@
     }
 }*/
 
+class trieNode
+{
+public:
+    std::unordered_map<char, TrieNode *> children;
+    bool isEndOfWord;
+
+    TrieNode()
+    {
+        isEndOfWord = false;
+    }
+};
 
 class PrefixTrie
 {
@@ -132,10 +143,10 @@ int main(int, char**)
 
     std::cout << "trie erstellt" << std::endl;
 
-    auto start_time = std::chrono::high_resolution_clock::now();
+    const auto start_time = std::chrono::high_resolution_clock::now();
     std::vector<std::string> result = trie.search("Text");
-    auto end_time = std::chrono::high_resolution_clock::now();
-    auto elapsed_time = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+    const auto end_time = std::chrono::high_resolution_clock::now();
+    const auto elapsed_time = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
 
     std::cout << "Zeit für die Suche: " << elapsed_time.count() << " Mikrosekunden" << std::endl;
     for (const std::string &word : result)
