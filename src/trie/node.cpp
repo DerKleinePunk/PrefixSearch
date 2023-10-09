@@ -14,16 +14,14 @@ node::~node()
     children.clear();
 }
 
-const std::vector<std::string> node::GetWords(const std::string& word)
+void node::GetWords(const std::string& word, std::vector<std::string>& result)
 {
-    std::vector<std::string> result;
     if(isEndOfWord) {
         result.push_back(word);
     }
-    for(const auto entry : children) {
+
+    for(const auto &entry : children) {
         auto nextPrefix = word + entry.first;
-		auto next = entry.second->GetWords(nextPrefix);
-        result.insert(result.end(), next.begin(), next.end());
+		entry.second->GetWords(nextPrefix, result);
 	}
-    return result;
 }

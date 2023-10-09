@@ -1,5 +1,15 @@
 #include "trie.hpp"
 
+void trie::findWordsFromNode(node* node, std::string currentWord, std::vector<std::string>& result)
+{
+    if(node->isEndOfWord) {
+        result.push_back(currentWord);
+    }
+    for(const auto& pair : node->children) {
+        findWordsFromNode(pair.second, currentWord + pair.first, result);
+    }
+}
+
 trie::trie(/* args */)
 {
 }
@@ -30,5 +40,8 @@ std::vector<std::string> trie::Search(const std::string& word)
         }
     }
 
-    return currentNode->GetWords(word);
+    std::vector<std::string> result;
+    findWordsFromNode(currentNode, word, result);
+    //currentNode->GetWords(word, result);
+    return result;
 }
