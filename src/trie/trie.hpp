@@ -6,10 +6,10 @@
 class trie
 {
 private:
-    node root;
+    node* root;
     void findWordsFromNode(node *node, std::string currentWord, std::vector<std::string> &result);
 public:
-    trie(/* args */);
+    trie();
     ~trie();
 
     void add(const std::string& word);
