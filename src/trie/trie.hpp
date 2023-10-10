@@ -7,8 +7,7 @@ class trie
 {
 private:
     trieNode* root{};
-    static void findWordsFromNode(trieNode *node, std::string currentWord, std::vector<std::string> &result);
-public:
+ public:
     trie();
     ~trie();
 
