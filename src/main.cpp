@@ -41,6 +41,7 @@ int main(int, char**) {
     const auto end_time = std::chrono::high_resolution_clock::now();
     std::cout << "search time = " << std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time).count() << "[us]" << std::endl;
 
+    std::cout << result.size() << " items found" << std::endl;
     /*
     for(auto entry : result) {
         std::cout << entry << std::endl;
