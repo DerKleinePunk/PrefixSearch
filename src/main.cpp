@@ -3,8 +3,9 @@
 #include <string>
 #include <vector>
 #include <chrono>
+#include <unordered_map>
 
-//#include "trie/trieNode.hpp"
+#include "trie/trieNode.hpp"
 
 /*int main(int, char**){
     std::cout << "Hello, from prefixSearch!\n";
@@ -45,17 +46,18 @@
     }
 }*/
 
+/*
 class trieNode
 {
 public:
-    std::unordered_map<char, TrieNode *> children;
+    std::unordered_map<char, trieNode *> children;
     bool isEndOfWord;
 
-    TrieNode()
+    trieNode()
     {
         isEndOfWord = false;
     }
-};
+};*/
 
 class PrefixTrie
 {

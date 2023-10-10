@@ -15,8 +15,7 @@ trie::trie(/* args */)
     root = new trieNode();
 }
 
-trie::~trie()
-= default;
+trie::~trie() = default;
 
 void trie::add(const std::string& word) const
 {
@@ -24,7 +23,7 @@ void trie::add(const std::string& word) const
 
     for(const auto buchstabe : word) {
         if(currentNode->children.find(buchstabe) == currentNode->children.end()) {
-            currentNode->children.insert(std::pair(buchstabe, new trieNode()));
+            currentNode->children.insert(std::pair<char, trieNode*>(buchstabe, new trieNode()));
         }
         currentNode = currentNode->children[buchstabe];
     }
@@ -42,6 +41,6 @@ std::vector<std::string> trie::Search(const std::string& word)
 
     std::vector<std::string> result;
     findWordsFromNode(currentNode, word, result);
-    //currentNode->GetWords(word, result);
+    // currentNode->GetWords(word, result);
     return result;
 }
